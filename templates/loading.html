@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HackerEye | Scanning</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+
+<style>
+
+
+body{
+
+    height:100vh;
+
+    background:
+    radial-gradient(circle,#12345b,#020617);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-family:'Segoe UI',sans-serif;
+
+}
+
+
+
+.scan-box{
+
+
+    background:#0c1729;
+
+    width:550px;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 0 40px rgba(0,234,255,.25);
+
+
+}
+
+
+
+.scanner-icon{
+
+
+    font-size:90px;
+
+    color:#00eaff;
+
+    animation:rotate 2s linear infinite;
+
+
+}
+
+
+
+@keyframes rotate{
+
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+
+}
+
+
+
+
+
+h1{
+
+    margin-top:25px;
+
+    font-weight:800;
+
+}
+
+
+
+.text{
+
+
+    color:#94a3b8;
+
+}
+
+
+
+.progress{
+
+
+    height:18px;
+
+    background:#020617;
+
+    margin-top:35px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.progress-bar{
+
+
+    width:0%;
+
+    height:100%;
+
+    background:#00eaff;
+
+    animation:loading 5s forwards;
+
+
+}
+
+
+
+@keyframes loading{
+
+
+0%{
+
+width:0%;
+
+}
+
+
+25%{
+
+width:30%;
+
+}
+
+
+50%{
+
+width:60%;
+
+}
+
+
+75%{
+
+width:85%;
+
+}
+
+
+100%{
+
+width:100%;
+
+}
+
+
+}
+
+
+
+
+
+.status{
+
+
+    margin-top:25px;
+
+    color:#00eaff;
+
+}
+
+
+
+.url{
+
+
+    margin-top:15px;
+
+    background:#101f36;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    word-break:break-all;
+
+}
+
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+
+<div class="scan-box">
+
+
+<div class="scanner-icon">
+
+<i class="fa-solid fa-microchip"></i>
+
+</div>
+
+
+
+<h1>
+
+AI Threat Analysis Running
+
+</h1>
+
+
+
+<p class="text">
+
+HackerEye is analyzing website security patterns...
+
+</p>
+
+
+
+
+<div class="url">
+
+<i class="fa-solid fa-link"></i>
+
+{{url}}
+
+</div>
+
+
+
+
+
+<div class="progress">
+
+
+<div class="progress-bar"></div>
+
+
+</div>
+
+
+
+
+<div class="status">
+
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Scanning URL, Domain and Security Features...
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+setTimeout(function(){
+
+
+window.location.href="/result?url={{url}}";
+
+
+},5000);
+
+
+
+</script>
+
+
+
+</body>
+
+
+</html>

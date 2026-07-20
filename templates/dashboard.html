@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HackerEye | Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+<style>
+
+body{
+
+background:#020617;
+color:white;
+font-family:'Segoe UI',sans-serif;
+
+}
+
+
+.navbar{
+
+background:#071426;
+padding:18px 40px;
+
+}
+
+
+.logo{
+
+color:#00eaff;
+font-size:28px;
+font-weight:bold;
+
+}
+
+
+.card{
+
+background:#0c1729;
+border:none;
+border-radius:20px;
+padding:25px;
+box-shadow:0 0 20px rgba(0,234,255,.15);
+
+}
+
+
+.icon{
+
+font-size:35px;
+color:#00eaff;
+
+}
+
+
+.table{
+
+color:white;
+
+}
+
+
+.table thead{
+
+background:#101f36;
+
+}
+
+
+.table tbody tr{
+
+border-color:#1e293b;
+
+}
+
+
+.btn-scan{
+
+background:#00eaff;
+color:#00131f;
+font-weight:bold;
+border-radius:25px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-shield-halved"></i>
+HackerEye
+
+</div>
+
+</nav>
+
+
+
+
+<div class="container mt-5">
+
+
+<h1 class="mb-4">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Security Dashboard
+
+</h1>
+
+
+
+
+<div class="row">
+
+
+<div class="col-md-4 mb-3">
+
+
+<div class="card text-center">
+
+<i class="fa-solid fa-globe icon"></i>
+
+<h3 class="mt-3">
+
+Total Scans
+
+</h3>
+
+
+<h2>
+
+{{scans|length}}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4 mb-3">
+
+
+<div class="card text-center">
+
+<i class="fa-solid fa-triangle-exclamation icon"></i>
+
+<h3 class="mt-3">
+
+Threat Reports
+
+</h3>
+
+
+<h2>
+
+{{scans|selectattr('2','equalto','Phishing Website')|list|length}}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-4 mb-3">
+
+
+<div class="card text-center">
+
+<i class="fa-solid fa-circle-check icon"></i>
+
+<h3 class="mt-3">
+
+Safe Websites
+
+</h3>
+
+
+<h2>
+
+{{scans|selectattr('2','equalto','Legitimate Website')|list|length}}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card mt-4">
+
+
+<h3>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Scan History
+
+</h3>
+
+
+<table class="table mt-3">
+
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>URL</th>
+
+<th>Result</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody>
+
+
+{% for scan in scans %}
+
+
+<tr>
+
+<td>
+
+{{scan[0]}}
+
+</td>
+
+
+<td>
+
+{{scan[1]}}
+
+</td>
+
+
+<td>
+
+
+{% if scan[2]=="Phishing Website" %}
+
+
+<span class="text-danger">
+
+{{scan[2]}}
+
+</span>
+
+
+{% else %}
+
+
+<span class="text-success">
+
+{{scan[2]}}
+
+</span>
+
+
+{% endif %}
+
+
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+
+<div class="text-center mt-4">
+
+
+<a href="/scanner" class="btn btn-scan px-4">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+New Scan
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>

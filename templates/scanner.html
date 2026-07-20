@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HackerEye | AI Scanner</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top,#12345b,#030712);
+
+    color:white;
+
+}
+
+
+
+/* Navbar */
+
+
+.navbar{
+
+    background:#071426;
+
+    padding:18px 40px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.5);
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:#00eaff;
+
+}
+
+
+
+.nav-link{
+
+    color:white !important;
+
+    margin-left:25px;
+
+}
+
+
+
+.nav-link:hover{
+
+    color:#00eaff !important;
+
+}
+
+
+
+
+
+/* Scanner Section */
+
+
+.scanner-section{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:80vh;
+
+
+}
+
+
+
+
+
+.scanner-card{
+
+
+    width:600px;
+
+    padding:45px;
+
+    background:rgba(12,23,41,.9);
+
+    border-radius:25px;
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 0 40px rgba(0,234,255,.2);
+
+
+}
+
+
+
+
+
+.shield{
+
+
+    font-size:90px;
+
+    color:#00eaff;
+
+
+    animation:pulse 2s infinite;
+
+
+}
+
+
+
+@keyframes pulse{
+
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+
+    50%{
+
+        transform:scale(1.1);
+
+    }
+
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+
+}
+
+
+
+
+h1{
+
+    font-weight:800;
+
+}
+
+
+
+
+.subtitle{
+
+    color:#9ca3af;
+
+}
+
+
+
+
+
+.input-box{
+
+
+    margin-top:35px;
+
+
+}
+
+
+
+.form-control{
+
+
+    height:60px;
+
+    border-radius:30px;
+
+    background:#020617;
+
+    border:1px solid #00eaff;
+
+    color:white;
+
+    padding-left:25px;
+
+}
+
+
+
+.form-control:focus{
+
+    background:#020617;
+
+    color:white;
+
+    box-shadow:0 0 15px #00eaff;
+
+}
+
+
+
+
+.scan-btn{
+
+
+    margin-top:25px;
+
+    padding:15px 45px;
+
+    border-radius:30px;
+
+    border:none;
+
+    background:#00eaff;
+
+    color:#00131f;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+
+    transition:.3s;
+
+}
+
+
+
+
+.scan-btn:hover{
+
+
+    background:white;
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+.features{
+
+
+    margin-top:40px;
+
+
+}
+
+
+
+
+.feature-card{
+
+
+    background:#101f36;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin:10px;
+
+}
+
+
+
+.feature-card i{
+
+
+    font-size:30px;
+
+    color:#00eaff;
+
+}
+
+
+
+footer{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    padding:20px;
+
+}
+
+
+
+</style>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- NAVBAR -->
+
+
+<nav class="navbar navbar-expand-lg">
+
+
+<div class="container">
+
+
+<a class="navbar-brand logo">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+HackerEye
+
+</a>
+
+
+
+<button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+
+
+
+<div class="collapse navbar-collapse" id="menu">
+
+
+<ul class="navbar-nav ms-auto">
+
+
+<li class="nav-item">
+
+<a class="nav-link" href="/">
+
+Home
+
+</a>
+
+</li>
+
+
+
+<li class="nav-item">
+
+<a class="nav-link" href="/dashboard">
+
+Dashboard
+
+</a>
+
+</li>
+
+
+
+<li class="nav-item">
+
+<a class="nav-link" href="/login">
+
+Logout
+
+</a>
+
+</li>
+
+
+
+</ul>
+
+
+
+</div>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+
+
+<!-- SCANNER -->
+
+
+<section class="scanner-section">
+
+
+<div class="scanner-card">
+
+
+<div class="shield">
+
+<i class="fa-solid fa-shield-virus"></i>
+
+</div>
+
+
+
+<h1>
+
+AI Website Security Scanner
+
+</h1>
+
+
+
+<p class="subtitle">
+
+Detect phishing websites using Machine Learning
+
+</p>
+
+
+
+
+
+<form action="/predict" method="POST">
+
+
+<div class="input-box">
+
+
+<input
+
+type="url"
+
+name="url"
+
+class="form-control"
+
+placeholder="Enter website URL (example: https://example.com)"
+
+required>
+
+
+</div>
+
+
+
+
+<button class="scan-btn">
+
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Scan Website
+
+
+</button>
+
+
+
+</form>
+
+
+
+
+
+
+
+<div class="row features">
+
+
+
+<div class="col-md-4">
+
+
+<div class="feature-card">
+
+
+<i class="fa-solid fa-robot"></i>
+
+
+<h6>
+
+AI Detection
+
+</h6>
+
+
+<p>
+
+ML powered analysis
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="feature-card">
+
+
+<i class="fa-solid fa-link"></i>
+
+
+<h6>
+
+URL Analysis
+
+</h6>
+
+
+<p>
+
+Smart feature extraction
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="feature-card">
+
+
+<i class="fa-solid fa-lock"></i>
+
+
+<h6>
+
+Security
+
+</h6>
+
+
+<p>
+
+Protect your identity
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+
+© 2026 HackerEye | AI Cyber Security Platform
+
+
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+
+</html>
