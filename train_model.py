@@ -59,7 +59,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 print("Training Random Forest Model...")
 
 model = RandomForestClassifier(
-    n_estimators=100,
+    n_estimators=50,
     random_state=42,
     n_jobs=-1
 )
@@ -71,7 +71,6 @@ print("Model Training Completed!")
 # ---------------- EVALUATION ----------------
 
 pred = model.predict(X_test)
-
 accuracy = accuracy_score(y_test, pred)
 
 print("=" * 50)
@@ -81,7 +80,7 @@ print("=" * 50)
 
 # ---------------- SAVE MODEL ----------------
 
-joblib.dump(model, "model.pkl")
+joblib.dump(model, "model_small.pkl", compress=3)
 
 print("Model Saved Successfully!")
 print("=" * 50)

@@ -26,7 +26,7 @@ cursor = conn.cursor(buffered=True)
 
 # ---------------- LOAD AI MODEL ----------------
 
-model = joblib.load("model.pkl")
+model = joblib.load("model_small.pkl")
 
 print("Model expects:", model.n_features_in_)
 
