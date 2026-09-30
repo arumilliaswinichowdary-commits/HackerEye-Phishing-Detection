@@ -11,11 +11,13 @@ app = Flask(__name__)
 
 # ---------------- DATABASE CONNECTION ----------------
 
+import os
+
 conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Dhara@123",
-    database="hackereye"
+    host=os.environ.get("DB_HOST"),
+    user=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_PASSWORD"),
+    database=os.environ.get("DB_NAME")
 )
 
 cursor = conn.cursor(buffered=True)
